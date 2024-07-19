@@ -1,3 +1,5 @@
+/* This code snippet is setting up authentication using Passport.js with a local strategy in a
+TypeScript environment. Here's a breakdown of what each part of the code is doing: */
 import { Request } from 'express';
 import passport, { DoneCallback } from 'passport';
 import { Strategy } from 'passport-local';
@@ -8,6 +10,7 @@ import { comparePassword } from '../utils/passwordHash';
 interface userType {
   _id?: string;
 }
+
 
 passport.serializeUser((user: userType, done: DoneCallback) => {
   done(null, user._id);
@@ -23,6 +26,8 @@ passport.deserializeUser(async (id, done: DoneCallback) => {
   }
 });
 
+/* This part of the code snippet is defining a local strategy for Passport.js authentication. Here's a
+breakdown of what it's doing: */
 passport.use(
   new Strategy(
     {
