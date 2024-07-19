@@ -7,6 +7,9 @@ import { tryCatch } from '../../middleware/tryCatch';
 import { hashingPassword } from '../../utils/passwordHash';
 import { CustomError } from '../../middleware/errorHandler';
 
+/* This code snippet is defining a function named `createNewUser` that is exported as a constant. The
+function is using the `tryCatch` middleware to handle any errors that might occur during its
+execution. */
 export const createNewUser = tryCatch(
   async (req: Request, res: Response, next: NextFunction) => {
     let userData = req.body;
