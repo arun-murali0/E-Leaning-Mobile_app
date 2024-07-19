@@ -1,3 +1,5 @@
+/* This TypeScript code snippet is defining a Mongoose schema for a user in a Node.js application. */
+
 import mongoose, { Schema } from 'mongoose';
 
 export interface Iuser {
