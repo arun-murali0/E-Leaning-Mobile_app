@@ -1,3 +1,5 @@
+/* This TypeScript code snippet is a module that provides functions for hashing and comparing passwords
+using the bcrypt library. Here's a breakdown of what each part of the code does: */
 import bcrypt from 'bcrypt';
 
 let saltRound = 10;
