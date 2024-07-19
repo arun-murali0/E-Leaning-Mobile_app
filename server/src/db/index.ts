@@ -1,3 +1,7 @@
+/**
+ * The code snippet sets up connections to MongoDB and Redis, with error handling and promisified Redis
+ * commands.
+ */
 import mongoose from 'mongoose';
 import { MONGO_URL, REDIS_SECRET, REDIS_URL, DB_NAME } from '../constants';
 import { createClient } from 'redis';
