@@ -1,3 +1,6 @@
+/* This TypeScript code snippet is setting up a logging configuration using the Winston library. Here's
+a breakdown of what it does: */
+
 import { format, createLogger, transports } from 'winston';
 
 const { combine, colorize, timestamp, json } = format;
