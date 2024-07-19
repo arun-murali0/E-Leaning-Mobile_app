@@ -1,8 +1,7 @@
+/* The code snippet you provided is a TypeScript function for handling user login using Express framework. Here is a breakdown of the imports and the function: */
 import { Request, Response } from 'express';
 import { User } from '../../model/user';
-import { CustomError } from '../../middleware/errorHandler';
 import { tryCatch } from '../../middleware/tryCatch';
-import { comparePassword } from '../../utils/passwordHash';
 // import { SET_DATA, GET_DATA } from '../../config/database';
 
 export const userLogin = tryCatch(async (req: Request, res: Response) => {

@@ -1,3 +1,6 @@
+/* This TypeScript code snippet is defining a function called `createNewUser` that handles the creation
+of a new user in an Express application. Here is a breakdown of what each import and part of the
+code is doing: */
 import { NextFunction, Request, Response } from 'express';
 import { User } from '../../model/user';
 import { tryCatch } from '../../middleware/tryCatch';
@@ -9,7 +12,6 @@ export const createNewUser = tryCatch(
     let userData = req.body;
     userData.password = hashingPassword(userData.password);
     if (userData.email) throw new CustomError('Already Registered', 400);
-
     const newUser = await User.create(userData);
     res.status(200).json({
       response: 'success',
