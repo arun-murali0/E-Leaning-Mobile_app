@@ -4,7 +4,7 @@ code is doing: */
 import { NextFunction, Request, Response } from 'express';
 import { User } from '../../model/user';
 import { tryCatch } from '../../middleware/tryCatch';
-import { hashingPassword } from '../../utils/passwordHash';
+import { hashingPassword } from '../../utils/bcrypt-hash/passwordHash';
 import { CustomError } from '../../middleware/errorHandler';
 
 /* This code snippet is defining a function named `createNewUser` that is exported as a constant. The

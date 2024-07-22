@@ -5,7 +5,7 @@ import passport, { DoneCallback } from 'passport';
 import { Strategy } from 'passport-local';
 import { CustomError } from '../middleware/errorHandler';
 import { User } from '../model/user';
-import { comparePassword } from '../utils/passwordHash';
+import { comparePassword } from '../utils/bcrypt-hash/passwordHash';
 
 interface userType {
   _id?: string;

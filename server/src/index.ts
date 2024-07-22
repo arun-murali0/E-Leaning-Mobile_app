@@ -8,13 +8,15 @@ import passport from 'passport';
 import Routes from './routes/index';
 import helmet from 'helmet';
 import morgan from 'morgan';
-import { morgonLogFormat } from './utils/morganLog';
+import { morgonLogFormat } from './utils/logs/morganLog';
 import { errorHandler, CustomError } from './middleware/errorHandler';
 
 const app = express();
 const morganFormat = ':method :url :status :response-time ms';
 
 // middleware
+
+// log
 app.use(morgan(morganFormat, morgonLogFormat));
 app.use(
   cors({
@@ -45,11 +47,6 @@ app.use(passport.session());
 app.use('/', Routes);
 
 // database
-
-// const DB = async () => {
-//   await db();
-//   await initialiseRedisConnection();
-// };
 
 db()
   .then(() => {
