@@ -24,7 +24,7 @@ export const errorHandler = (
   res: Response,
   next: NextFunction
 ) => {
- /* The `if (error instanceof CustomError)` statement is checking if the `error` object is an instance
+  /* The `if (error instanceof CustomError)` statement is checking if the `error` object is an instance
  of the `CustomError` class. If the `error` object is an instance of `CustomError`, it means that
  the error was intentionally thrown using the `CustomError` class. */
   if (error instanceof CustomError) {
@@ -32,5 +32,5 @@ export const errorHandler = (
   }
 
   //   default
-  return res.status(500).send({ error: 'internal server error' });
+  return res.status(500).send({ error: 'Interal server Error' });
 };

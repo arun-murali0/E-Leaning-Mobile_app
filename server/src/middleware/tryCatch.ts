@@ -17,6 +17,6 @@ export const tryCatch =
     try {
       await controller(req, res);
     } catch (error: any) {
-      return next(error.message);
+      return next(error);
     }
   };
