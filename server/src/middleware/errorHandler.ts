@@ -30,7 +30,12 @@ export const errorHandler = (
   if (error instanceof CustomError) {
     return res.status(error.statusCode).json({ error: error.errorMessage });
   }
+  console.log(error.name);
+
+  if (error.name === 'ValidationError') {
+    return res.status(400).json({ error: error });
+  }
 
   //   default
-  return res.status(500).send({ error: 'Interal server Error' });
+  return res.status(500).send({ error: 'internal server Error' });
 };

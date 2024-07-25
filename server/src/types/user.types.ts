@@ -17,8 +17,6 @@ interface Iuser {
 interface ICourse {
   title: string;
   description: string;
-  instructor: mongoose.Types.ObjectId;
-  category: string;
   price: number;
   subscriptionLevel: 'free' | 'paid';
   enrolledStudents: mongoose.Types.ObjectId[];
