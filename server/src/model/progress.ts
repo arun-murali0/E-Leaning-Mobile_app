@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
+import { IProgress } from '../types/user.types';
 
-const progressSchema: Schema = new Schema({
+const progressSchema: Schema = new Schema<IProgress>({
   user: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   course: { type: Schema.Types.ObjectId, ref: 'Course', required: true },
   watchedVideos: [{ type: Schema.Types.ObjectId, ref: 'Video' }],
@@ -10,4 +11,4 @@ const progressSchema: Schema = new Schema({
   updatedAt: { type: Date, default: Date.now },
 });
 
-export const progress = mongoose.model('progress', progressSchema);
+export const progress = mongoose.model<IProgress>('progress', progressSchema);

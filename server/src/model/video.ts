@@ -1,7 +1,8 @@
 import mongoose, { Schema } from 'mongoose';
 import { comments } from './comments';
+import { IVideo } from '../types/user.types';
 
-const videoSchema: Schema = new Schema({
+const videoSchema: Schema = new Schema<IVideo>({
   title: { type: String, required: true },
   description: { type: String, required: true },
   course: { type: Schema.Types.ObjectId, ref: 'Course', required: true },
@@ -14,4 +15,4 @@ const videoSchema: Schema = new Schema({
   updatedAt: { type: Date, default: Date.now },
 });
 
-export const videos = mongoose.model('videos', videoSchema);
+export const videos = mongoose.model<IVideo>('videos', videoSchema);

@@ -1,6 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
+import { ICourse } from '../types/user.types';
 
-const coarseSchema = new Schema({
+const coarseSchema = new Schema<ICourse>({
   title: { type: String, required: true },
   description: { type: String, required: true },
   instructor: { type: Schema.Types.ObjectId, ref: 'User', required: true },
@@ -8,7 +9,7 @@ const coarseSchema = new Schema({
   price: { type: Number, required: true },
   subscriptionLevel: {
     type: String,
-    enum: ['free', 'basic', 'premium'],
+    enum: ['free', 'paid'],
     required: true,
   },
   enrolledStudents: [{ type: Schema.Types.ObjectId, ref: 'user' }],
@@ -17,4 +18,4 @@ const coarseSchema = new Schema({
   updatedAt: { type: Date, default: Date.now },
 });
 
-export const coarse = mongoose.model('coarse', coarseSchema);
+export const coarse = mongoose.model<ICourse>('coarse', coarseSchema);
