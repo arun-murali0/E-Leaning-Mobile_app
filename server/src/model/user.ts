@@ -1,49 +1,49 @@
-/* This TypeScript code snippet is defining a Mongoose schema for a user in a Node.js application. */
-
 import mongoose, { Schema } from 'mongoose';
-import { Iuser } from '../types/model-types/user.types';
 
-const userSchema: Schema = new Schema<Iuser>(
-  {
-    firstname: {
-      type: String,
-      required: true,
-    },
-    lastname: {
-      type: String,
-      required: true,
-    },
-    email: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    password: {
-      type: String,
-      required: true,
-    },
-    isAdmin: Boolean,
-    subscribed: Boolean,
-    content: {
-      type: mongoose.Types.ObjectId,
-      ref: 'content',
-    },
-    comments: {
-      type: mongoose.Types.ObjectId,
-      ref: 'comments',
-    },
-    watchlist: {
-      type: mongoose.Types.ObjectId,
-      ref: 'watchlist',
-    },
-    likes: {
-      type: mongoose.Types.ObjectId,
-      ref: 'likes',
-    },
+import { Iuser } from '../types/user.types';
+
+const userSchema: Schema = new Schema<Iuser>({
+  firstname: {
+    type: String,
+    required: true,
   },
-  {
-    timestamps: true,
-  }
-);
+  lastname: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique:true
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  role: {
+    type: String,
+    enum: ['admin', 'student'],
+    default: 'student',
+  },
+  subscriptionStatus: {
+    type: String,
+    enum: ['free', 'paid'],
+    default: 'free',
+  },
+  enrolledCoarse: [
+    {
+      type: mongoose.Types.ObjectId,
+      ref: 'coarse',
+    },
+  ],
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
 
-export const User = mongoose.model<Iuser>('user', userSchema);
+export const user = mongoose.model<Iuser>('user', userSchema);
