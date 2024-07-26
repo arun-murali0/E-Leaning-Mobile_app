@@ -6,6 +6,15 @@ const MONGO_URL = process.env.MONGO_STRING;
 const REDIS_URL = process.env.REDIS_PUBLIC_HOST;
 const REDIS_SECRET = process.env.REDIS_SECRET;
 const SECRET = process.env.SECRET;
+const REDIS_PORT = process.env.REDIS_PORT;
 const DB_NAME = 'E-LearningApplication';
 
-export { PORT, MONGO_URL, REDIS_SECRET, REDIS_URL, SECRET, DB_NAME };
+export {
+  PORT,
+  MONGO_URL,
+  REDIS_SECRET,
+  REDIS_URL,
+  SECRET,
+  DB_NAME,
+  REDIS_PORT,
+};

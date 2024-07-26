@@ -8,7 +8,7 @@ interface Iuser {
   password: string;
   role: 'student' | 'admin';
   subscriptionStatus: 'free' | 'paid';
-  enrolledCoarse: mongoose.Types.ObjectId[];
+  enrolledCoarse?: mongoose.Types.ObjectId[];
   createdAt: Date;
   updatedAt: Date;
 }
@@ -33,7 +33,6 @@ interface IVideo {
   uploadedBy: mongoose.Types.ObjectId;
   fileUrl: string;
   duration: number;
-  order: number;
   comments: IComment[];
   createdAt: Date;
   updatedAt: Date;
